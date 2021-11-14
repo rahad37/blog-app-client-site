@@ -1,0 +1,59 @@
+.login{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(36, 35, 35, 0.5), rgba(36, 35, 35, 0.5)), url("https://previews.123rf.com/images/szefei/szefei1512/szefei151200171/50022821-work-desk-with-laptop-computer-plant-pot-and-hot-coffee-cup-top-view-rustic-wooden-table-background-.jpg");
+    background-size: cover;
+}
+
+.loginTitle{
+    font-size: 50px;
+    color: white;
+}
+
+.loginForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm>label{
+    margin: 10px 0;
+    color: white;
+}
+
+.loginInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+    width: 300px;
+}
+
+.loginButton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.loginButton:disabled{
+    cursor: not-allowed;
+    background-color: rgb(240, 174, 150);
+}
+
+.loginRegister{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
