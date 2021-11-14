@@ -12,7 +12,7 @@ const Settings = () => {
     const [success, setSuccess] = useState(false);
     const {user, dispatch} = useContext(Context);
 
-    const PF = 'http://localhost:5001/images/'
+    const PF = process.env.BACKEND_URL +'/images/';
 
     const handleSubmit = async(e) => {
         e.preventDefault();

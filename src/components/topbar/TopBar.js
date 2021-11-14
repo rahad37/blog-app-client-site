@@ -5,7 +5,7 @@ import { Context } from './../../context/Context';
 
 const TopBar = () => {
     const {user, dispatch} = useContext(Context);
-    const PF = "http://localhost:5001/images/"
+    const PF = process.env.BACKEND_URL +"/images/";
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'})
