@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Post.css';
 
 const Post = ({post}) => {
-    const PF = 'http://localhost:5001/images/';
+    const PF = process.env.BACKEND_URL + '/images/';
     return (
         <div className='post'>
             {post.photo && 
