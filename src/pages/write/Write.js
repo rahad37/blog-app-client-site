@@ -29,7 +29,7 @@ const Write = () => {
         }
         try{
             const res = await axios.post('https://my-bloggin-app.herokuapp.com/api/posts', newPost);
-            window.location.replace('/post/' + res.data._id);
+            window.location.replace('https://my-bloggin-app.herokuapp.com/api/post/' + res.data._id);
         }catch(err){}
     }
     return (
