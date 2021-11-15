@@ -14,7 +14,7 @@ const Post = ({post}) => {
                     <div className="postCat">{c.name}</div>
                    ))}
                </div>
-               <Link to={`https://my-bloggin-app.herokuapp.com/api/posts/${post._id}`} className='link'>
+               <Link to={`/post/${post._id}`} className='link'>
                     <span className="postTitle">{post.title}</span>
                </Link>
                <hr />
