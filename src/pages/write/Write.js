@@ -3,6 +3,7 @@ import './write.css';
 import { Context } from './../../context/Context';
 import { useContext } from 'react';
 import { axiosInstance } from './../../config';
+import axios from 'axios';
 
 const Write = () => {
     const [title, setTitle] = useState('');
@@ -23,11 +24,11 @@ const Write = () => {
             newPost.photo = filename;
 
             try{
-                await axiosInstance.post('/upload', data);
+                await axios.post('https://my-bloggin-app.herokuapp.com/api/upload', data);
             }catch(err){}
         }
         try{
-            const res = await axiosInstance.post('/posts', newPost);
+            const res = await axios.post('https://my-bloggin-app.herokuapp.com/api/posts', newPost);
             window.location.replace('/post/' + res.data._id);
         }catch(err){}
     }

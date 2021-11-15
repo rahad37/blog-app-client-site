@@ -3,7 +3,7 @@ import './singlePost.css';
 import {useLocation} from 'react-router';
 import { Link } from 'react-router-dom';
 import { Context } from './../../context/Context';
-import { axiosInstance } from './../../config';
+import axios from 'axios';
 
 const SinglePost = () => {
     const location = useLocation();
@@ -17,7 +17,7 @@ const SinglePost = () => {
 
     useEffect(() =>{
         const getPost = async () => {
-            const res = await axiosInstance.get('/posts/' + path);
+            const res = await axios.get('https://my-bloggin-app.herokuapp.com/api/posts/' + path);
             setPost(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
@@ -26,13 +26,13 @@ const SinglePost = () => {
     },[path]);
 
     const handleDelete = async () =>{
-        await axiosInstance.delete(`/posts/${post._id}`, {data: {username: user.username}});
+        await axios.delete(`https://my-bloggin-app.herokuapp.com/api/posts/${post._id}`, {data: {username: user.username}});
         window.location.replace('/')
     }
 
     const handleUpdate = async () => {
         try{
-            await axiosInstance.put(`/posts/${post._id}`, {
+            await axios.put(`https://my-bloggin-app.herokuapp.com/api/posts/${post._id}`, {
                 username: user.username, title, desc
             });
             setUpdateMode(false)

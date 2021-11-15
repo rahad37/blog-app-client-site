@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import './settings.css';
 import SideBar from './../../components/sidebar/SideBar';
 import { Context } from './../../context/Context';
-import { axiosInstance } from './../../config';
+// import { axiosInstance } from './../../config';
+import axios from 'axios';
 
 const Settings = () => {
     const [file, setFile] = useState(null);
@@ -12,7 +13,7 @@ const Settings = () => {
     const [success, setSuccess] = useState(false);
     const {user, dispatch} = useContext(Context);
 
-    const PF ='https://my-bloggin-app.herokuapp.com//images/';
+    const PF ='https://my-bloggin-app.herokuapp.com/images/';
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -31,12 +32,12 @@ const Settings = () => {
             updateUser.profilePic = filename;
 
             try{
-                await axiosInstance.post('/upload', data);
+                await axios.post('https://my-bloggin-app.herokuapp.com/api/upload', data);
                 
             }catch(err){}
         }
         try{
-            const res = await axiosInstance.put('/users/' + user._id, updateUser);
+            const res = await axios.put('https://my-bloggin-app.herokuapp.com/api/users/' + user._id, updateUser);
             setSuccess(true);
             dispatch({type: 'UPDATE_SUCCESS', payload: res.data});           
         }catch(err){

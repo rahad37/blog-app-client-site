@@ -2,7 +2,7 @@ import React, {useRef, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import './login.css';
 import { Context } from './../../context/Context';
-import { axiosInstance } from './../../config';
+import axios from 'axios';
 
 const Login = () => {
     const userRef = useRef();
@@ -13,7 +13,7 @@ const Login = () => {
         e.preventDefault();
         dispatch({type: 'LOGIN_START'});
         try{
-            const res = await axiosInstance.post('/auth/login', {
+            const res = await axios.post('https://my-bloggin-app.herokuapp.com/api/auth/login', {
                 username: userRef.current.value,
                 password: passwordRef.current.value
             });
