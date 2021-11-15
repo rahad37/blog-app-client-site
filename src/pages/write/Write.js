@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import './write.css';
 import { Context } from './../../context/Context';
 import { useContext } from 'react';
-import { axiosInstance } from './../../config';
 import axios from 'axios';
 
 const Write = () => {
