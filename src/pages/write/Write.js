@@ -32,7 +32,6 @@ const Write = () => {
             window.location.replace('/post/' + res.data._id);
         }catch(err){}
     }
-
     return (
         <div className='write'>
             {file && (
