@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './write.css';
 import { Context } from './../../context/Context';
 import { useContext } from 'react';
-import axios from 'axios';
+import { axiosInstance } from './../../config';
 
 const Write = () => {
     const [title, setTitle] = useState('');
@@ -23,11 +23,11 @@ const Write = () => {
             newPost.photo = filename;
 
             try{
-                await axios.post('/upload', data);
+                await axiosInstance.post('/upload', data);
             }catch(err){}
         }
         try{
-            const res = await axios.post('/posts', newPost);
+            const res = await axiosInstance.post('/posts', newPost);
             window.location.replace('/post/' + res.data._id);
         }catch(err){}
     }

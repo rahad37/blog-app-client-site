@@ -1,10 +1,10 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import Header from '../../components/header/Header';
 import SideBar from '../../components/sidebar/SideBar';
 import Posts from './../../components/posts/Posts';
 import './home.css';
+import { axiosInstance } from './../../config';
 
 const Home = () => {
     const [posts, setPosts] = useState([]);
@@ -12,7 +12,7 @@ const Home = () => {
 
     useEffect(() =>{
         const fetchPosts = async () => {
-           const res = await axios.get('/posts' + search);
+           const res = await axiosInstance.get('/posts' + search);
            setPosts(res.data)
         }
         fetchPosts();

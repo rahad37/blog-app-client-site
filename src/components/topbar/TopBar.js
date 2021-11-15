@@ -5,7 +5,7 @@ import { Context } from './../../context/Context';
 
 const TopBar = () => {
     const {user, dispatch} = useContext(Context);
-    const PF = process.env.BACKEND_URL +"/images/";
+    const PF = "https://my-bloggin-app.herokuapp.com/images/";
 
     const handleLogout = () => {
         dispatch({type: 'LOGOUT'})

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Post.css';
 
 const Post = ({post}) => {
-    const PF = process.env.BACKEND_URL + '/images/';
+    const PF ='https://my-bloggin-app.herokuapp.com/images/';
     return (
         <div className='post'>
             {post.photo && 
